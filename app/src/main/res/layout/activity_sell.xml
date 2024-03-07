@@ -6,15 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Sell">
 
     <LinearLayout
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
         >
 
         <TextView
@@ -26,8 +24,6 @@
             android:layout_weight="1"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
             />
 
         <TextView
@@ -49,12 +45,14 @@
         android:background="@color/black"
         />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
         android:scrollbars="none"
         />
+
 
 </LinearLayout>

@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Cash & Carry"
+rootProject.name = "Stock Maintain With SQLite"
 include ':app'

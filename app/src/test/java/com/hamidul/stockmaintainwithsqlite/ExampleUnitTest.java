@@ -1,4 +1,4 @@
-package com.hamidul.cashcarry;
+package com.hamidul.stockmaintainwithsqlite;
 
 import org.junit.Test;
 
