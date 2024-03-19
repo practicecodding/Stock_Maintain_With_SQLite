@@ -34,7 +34,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/okay"
+            android:src="@drawable/done_icon"
             android:visibility="gone"
             android:clickable="true"
             android:focusable="?attr/selectableItemBackground"
@@ -63,11 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:src="@drawable/baseline_add_circle_outline_24"
-            android:visibility="visible"
             android:clickable="true"
             android:focusable="?attr/selectableItemBackground"
-            />
+            android:src="@drawable/baseline_add_circle_outline_24"
+            android:visibility="visible"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tvUnit"

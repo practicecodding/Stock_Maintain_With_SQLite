@@ -1,14 +1,21 @@
 package com.hamidul.stockmaintainwithsqlite;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     LinearLayout textView;
     DatabaseHelper dbHelper;
+    TextView addSku;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,44 +41,49 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         listView = findViewById(R.id.listView);
+        addSku = findViewById(R.id.addSku);
         dbHelper = new DatabaseHelper(this);
 
         getFinalStock();
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        addSku.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                final Dialog dialog = new Dialog(MainActivity.this);
-//
-//                dialog.setContentView(R.layout.insert_data);
-//
-//                EditText edSku = dialog.findViewById(R.id.edSku);
-//                EditText edUnit = dialog.findViewById(R.id.edUnit);
-//                Button button = dialog.findViewById(R.id.button);
-//
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
-//                dialog.getWindow().setGravity(Gravity.BOTTOM);
-//                dialog.show();
-//
-//
-//                button.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                        String sku = edSku.getText().toString();
-//                        String sUnit = edUnit.getText().toString();
-//                        int unit = Integer.parseInt(sUnit);
-//
-//                        dbHelper.insertStock(sku,unit);
-//
-//                        getFinalStock();
-//
-//                    }
-//                });
+                final Dialog dialog = new Dialog(MainActivity.this);
 
+                dialog.setContentView(R.layout.insert_data);
 
+                EditText edSku = dialog.findViewById(R.id.edSku);
+                EditText edUnit = dialog.findViewById(R.id.edUnit);
+                Button button = dialog.findViewById(R.id.button);
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setGravity(Gravity.BOTTOM);
+                dialog.show();
+
+                   button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String sku = edSku.getText().toString();
+                        String sUnit = edUnit.getText().toString();
+                        int unit = Integer.parseInt(sUnit);
+
+                        dbHelper.insertStock(sku,unit);
+
+                        getFinalStock();
+
+                    }
+                });
+
+            }
+        });
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("What You Want")
